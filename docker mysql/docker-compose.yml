@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  myslql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    hostname: mysql
+    volumes:
+      - /root/dev/raritan-chatbot/volumn/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=db104
+    command:
+      - --max_allowed_packet=65737518
+      - --innodb_log_file_size=269331648
+      - --query_cache_size=36737518
+      - --character_set_server=utf8
+      - --bind-address=0.0.0.0
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+
